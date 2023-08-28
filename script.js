@@ -63,3 +63,14 @@ para.addEventListener('click', function(){
 
 console.log('Hello');
 
+
+// SetTimeout() - The setTimeout() method execute function or block of code after specified time 
+// it is asynchronous function
+// 1 second = 1000 millisecond
+
+console.log("Hii")
+setTimeout(function timeout(){
+    console.log("click the button");
+},5000);
+
+console.log("Hello");
