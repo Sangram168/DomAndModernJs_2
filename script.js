@@ -44,5 +44,22 @@ for(i = 1; i<=100; i++) {
 document.body.appendChild(fragment); // 1 reflow, 1 repaint
 
 
+// Event loop - works in a cyclic manner, where it continually checks whether or not the call stack is empty. If it is empty, 
+// new functions are added from the event queue. If it is not, then the current function call is processed.
+// CallStack - call stack is list which track functions which execute first and which execute last
+// synchronous -  the code runs in a particular sequence of instructions given in the program
+// and occurring at same time
+// asynchronous - allows your code to run in the background without blocking the execution of other code
+// and not at occurring at the same time and it uses event loop to execute
+// event queue - responsible for sending new functions to the stack for processing
+// only when call stack become empty
 
+let para = document.querySelector('.para');
+console.log(para);
+console.log("Hii");
+para.addEventListener('click', function(){
+    console.log('click')
+});
+
+console.log('Hello');
 
