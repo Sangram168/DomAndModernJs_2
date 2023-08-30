@@ -140,3 +140,39 @@ let output = ab1.then(()=>{
 })
 
 output.then((value)=>console.log(value))
+
+// Async - The keyword async before a function makes the function return a promise
+// Await - Await function is used to wait for the promise. It could be used within the async block only. 
+// It makes the code wait until the promise returns a result.
+
+async function abcd(){
+
+    return ("ABCD");
+
+}
+
+console.log(abcd()); 
+
+async function utility(){
+
+let delhiWeather = new Promise((resolve, reject) => {
+    setTimeout(()=>{
+
+        resolve("Delhi weather update");
+    },5000);
+});
+
+
+let mumbaiWeather = new Promise((resolve,reject) => {
+
+    setTimeout(()=>{
+
+        resolve("Mumbai weather update")
+    },6000)
+});
+
+let dW = await delhiWeather;
+let mW = await mumbaiWeather;
+
+return [dW, mW];
+}
