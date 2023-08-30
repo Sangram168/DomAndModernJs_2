@@ -74,3 +74,69 @@ setTimeout(function timeout(){
 },5000);
 
 console.log("Hello");
+
+
+// Promise - It is an object representing the eventual compilation or failure
+// of asynchronous operation
+// Resolve case
+let myPromise = new Promise(function(resolve, reject){
+
+    setTimeout(function(){
+        console.log("I am inside Promise");
+    },5000);
+    resolve(2399);
+});
+
+console.log("hii");
+
+// reject case
+
+let myPromise1 = new Promise(function(resolve, reject){
+
+    setTimeout(function(){
+
+        console.log("I am inside Promise");
+    }, 5000);
+    reject(new Error('its a error'))
+});
+
+console.log("first");
+
+
+// We can apply two method on promise
+// then() - then() method receive an value after promise is fulfilled
+// catch() - catch() method receive an error after promise is rejected
+myPromise.then((value) => console.log(value))
+myPromise1.catch((error)=> console.log("Received an error"))
+
+// then() + catch()
+// myPromise.then((value) => console.log(value),(error)=> console.log("Received an error"))
+
+
+// Promise chaining - allows you to chain together multiple asynchronous 
+// tasks in a specific order
+
+let ab1 = new Promise(function(resolve, reject){
+
+    setTimeout(()=>{
+        console.log('settimeout1 started');
+    },2000);
+    resolve(true);
+})
+
+let output = ab1.then(()=>{
+
+    let ab2 = new Promise(function(resolve, reject){
+
+        setTimeout(()=>{
+       
+            console.log("settimeout2 started")
+
+        },3000);
+        resolve("ab2 resolve");
+    })
+
+    return ab2;
+})
+
+output.then((value)=>console.log(value))
