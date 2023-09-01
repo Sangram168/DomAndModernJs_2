@@ -270,3 +270,47 @@ outer1()
 
 // console.log("Too Outer", userName); not access because of scope
 
+
+
+// Closure - A closure is the combination of a function bundled together (enclosed) 
+// with references to its surrounding state (the lexical environment).
+// It is created when a function is defined inside another another function and that
+// inner function references variables from the outer function's scope.The inner function
+// maintains a reference to variables in outer function scope even after the outer function has returned
+
+
+function makeFunc() {
+    let name = "Mozilla";
+    function displayName() {
+      console.log(name);
+    }
+    return displayName;
+  }
+  
+  let myFunc = makeFunc();
+  myFunc(); // It not stored only the inner function only but also lexical scoping of inner function
+
+
+
+// Practical example
+
+// document.getElementById("orange").onclick = function(){
+
+//     document.body.style.backgroundColor = 'orange'
+// }
+
+// document.getElementById("green").onclick = function(){
+
+//     document.body.style.backgroundColor = 'green'
+// }
+
+function clickHandler(color){
+
+    return function(){
+        document.body.style.backgroundColor = `${color}`
+    
+    }
+}
+
+document.getElementById('orange').onclick = clickHandler('orange')
+document.getElementById('green').onclick = clickHandler('green')
