@@ -141,6 +141,8 @@ let output = ab1.then(()=>{
 
 output.then((value)=>console.log(value))
 
+
+
 // Async - The keyword async before a function makes the function return a promise
 // Await - Await function is used to wait for the promise. It could be used within the async block only. 
 // It makes the code wait until the promise returns a result.
@@ -176,3 +178,48 @@ let mW = await mumbaiWeather;
 
 return [dW, mW];
 }
+
+
+
+// Fetch API
+// fetch() - The fetch() method starts the process of fetching a resource from a server.
+// In any network any data send or receive is called fetch api
+// get - It 
+async function utility() {
+let content = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+let output1 = await content.json();
+console.log(output1);
+
+}
+
+utility();
+
+
+// post - It help to post the data to server
+
+async function helper() {
+let options = {
+    method: 'POST',
+    body: JSON.stringify({
+      title: 'Sang',
+      body: 'bar',
+      userId: 1989,
+      id:234,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+};
+
+let content = await fetch('https://jsonplaceholder.typicode.com/posts',options);
+let response = content.json();
+return response;
+}
+
+async function utility1(){
+    let ans = await helper();
+    console.log(ans);
+}
+
+utility1();
+
