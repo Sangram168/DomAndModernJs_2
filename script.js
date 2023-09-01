@@ -223,3 +223,50 @@ async function utility1(){
 
 utility1();
 
+
+
+// lexical scoping - Lexical scoping means that the visibility of variables is determined by the 
+// location of the variables inside the nested scopes. In simpler words, 
+// we can say that with the help of lexical scoping only we are able to access variables of the outer scope from the inner scope.
+
+
+function outer(){
+
+    let userName = "Sangram"
+    function inner(){
+
+        console.log("inner" ,userName) // its access userNAme
+    }
+
+    inner()
+}
+
+outer()
+
+// console.log("Too outer", userName); // its not access userName because of scope
+
+
+// second example
+
+function outer1(){
+
+    let userName = "Sangram"
+    // console.log("outer", secret); // outside the scope cant access
+    function inner(){
+       // let secret = "my123"
+        console.log("inner", userName);
+    }
+
+    function innerTwo(){
+        console.log("innerTwo", userName);
+        // console.log(secret);
+    }
+
+    inner()
+    innerTwo()
+}
+
+outer1()
+
+// console.log("Too Outer", userName); not access because of scope
+
